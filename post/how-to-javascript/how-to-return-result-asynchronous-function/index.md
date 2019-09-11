@@ -37,13 +37,13 @@ const asynchronousFunction = async () => {
   return response
 }
 ```
-
-In this case `mainFunction` does not need to change anything:
+Here the original response is wrapped with a promise when calling `asynchronousFunction`;
+If you need the original response from `mainFunction` you have to resolve the promise again(or `await` it)
 
 ```js
-const mainFunction = () => {
-  const result = asynchronousFunction()
-  return result
+const mainFunction = async () => {
+  const result = await asynchronousFunction()
+  return result 
 }
 ```
 
